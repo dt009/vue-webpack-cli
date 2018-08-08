@@ -1,0 +1,12 @@
+{
+  "name": "vue-webpack-cli",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/dt009/vue-webpack-cli.git",
+  "author": "dt009 <18363625031@163.com>",
+  "license": "MIT",
+  "dependencies": {
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0"
+  }
+}
