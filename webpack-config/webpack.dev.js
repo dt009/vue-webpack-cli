@@ -2,7 +2,7 @@
  * @Author: duantao-ds
  * @Date: 2018-08-08 23:25:58
  * @Last Modified by: duantao-ds
- * @Last Modified time: 2018-08-09 09:52:47
+ * @Last Modified time: 2018-08-09 11:40:53
  */
 
 const merge = require('webpack-merge');
@@ -10,10 +10,22 @@ const common = require('./webpack.common');
 const path = require('path');
 const webpack = require('webpack');
 
+let hotMiddlewareScript = 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true'
+
 module.exports = merge(common, {
     mode: 'development',
+    entry: {
+        app: ['./src/index.js', hotMiddlewareScript],
+        vendor: [
+            'vue',
+            'vue-router',
+            'vuex',
+            hotMiddlewareScript
+        ]
+    },
+
     output: {
-        filename: '[name].js',
+        filename: '[name].[hash].js',
         path: path.resolve(__dirname, '../dist'),
         publicPath: '/'
     },
@@ -21,6 +33,9 @@ module.exports = merge(common, {
     plugins: [
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('development')
-        })
+        }),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.optimize.OccurrenceOrderPlugin(),
+        new webpack.NoEmitOnErrorsPlugin()
     ]
 })

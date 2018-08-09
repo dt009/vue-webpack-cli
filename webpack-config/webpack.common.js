@@ -2,7 +2,7 @@
  * @Author: duantao-ds
  * @Date: 2018-08-08 16:29:51
  * @Last Modified by: duantao-ds
- * @Last Modified time: 2018-08-09 10:17:27
+ * @Last Modified time: 2018-08-09 11:41:30
  */
 
 const webpack = require('webpack');
@@ -15,22 +15,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 
 module.exports = {
-    entry: {
-        app: ['./src/index.js'],
-        vendor: [
-            'vue',
-            'vue-router',
-            'vuex'
-        ]
-    },
-
     optimization: {
         runtimeChunk: 'single',
         splitChunks: {
             chunks: 'all',
             cacheGroups: {
                 vendor: {
-                    test: /node_modules/,
+                    test: /[\\/]node_modules[\\/]/,
                     name: 'vendors',
                     chunks: 'all'
                 }
@@ -53,7 +44,7 @@ module.exports = {
                           publicPath: '/'
                         }
                     },
-                    {loader: 'style-loader'},
+                    // {loader: 'style-loader'},
                     {loader: 'css-loader'},
                     {loader: 'less-loader'}
                 ]
@@ -91,14 +82,13 @@ module.exports = {
         new CleanWebpackPlugin(['dist'], {
             root: path.resolve(__dirname, '../')
         }),
-        new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             template: './src/index.html',
             title: config.pageTitle
         }),
         new VueLoaderPlugin(),
         new MiniCssExtractPlugin({
-            filename: "[name].css",
+            filename: "[name].[chunkhash].css",
             chunkFilename: "[id].css"
         })
     ],
