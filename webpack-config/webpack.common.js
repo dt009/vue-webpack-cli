@@ -2,7 +2,7 @@
  * @Author: duantao-ds
  * @Date: 2018-08-08 16:29:51
  * @Last Modified by: duantao-ds
- * @Last Modified time: 2018-08-09 11:41:30
+ * @Last Modified time: 2018-08-09 14:54:59
  */
 
 const webpack = require('webpack');
@@ -13,10 +13,9 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-
 module.exports = {
     optimization: {
-        runtimeChunk: 'single',
+        runtimeChunk: 'multiple',
         splitChunks: {
             chunks: 'all',
             cacheGroups: {
@@ -34,20 +33,6 @@ module.exports = {
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',
-            },
-            {
-                test: /\.less$/,
-                use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                          publicPath: '/'
-                        }
-                    },
-                    // {loader: 'style-loader'},
-                    {loader: 'css-loader'},
-                    {loader: 'less-loader'}
-                ]
             },
             {
                 test: /\.js$/,
@@ -88,7 +73,7 @@ module.exports = {
         }),
         new VueLoaderPlugin(),
         new MiniCssExtractPlugin({
-            filename: "[name].[chunkhash].css",
+            filename: "[name].[contenthash].css",
             chunkFilename: "[id].css"
         })
     ],

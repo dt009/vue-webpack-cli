@@ -1,6 +1,6 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["vendor"],{
-
-/***/ 2:
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["vendor"],[
+/* 0 */,
+/* 1 */
 /*!*************************************************************************************************************!*\
   !*** multi vue vue-router vuex webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true ***!
   \*************************************************************************************************************/
@@ -14,6 +14,5 @@ module.exports = __webpack_require__(/*! webpack-hot-middleware/client?path=/__w
 
 
 /***/ })
-
-},[[2,"runtime","vendors"]]]);
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJ2ZW5kb3IuMDUxMzhiNzUxOTNkODM2YjU3ODMuanMiLCJzb3VyY2VSb290IjoiIn0=
+],[[1,"runtime~vendor","vendors"]]]);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJ2ZW5kb3IuanMiLCJzb3VyY2VSb290IjoiIn0=

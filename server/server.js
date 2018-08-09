@@ -2,14 +2,14 @@
  * @Author: duantao-ds
  * @Date: 2018-08-09 11:10:08
  * @Last Modified by: duantao-ds
- * @Last Modified time: 2018-08-09 11:38:35
+ * @Last Modified time: 2018-08-09 14:02:25
  */
 
 const config = require('../config/config');
-const Koa = require('koa');
+const express = require('express');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
-const app = new Koa();
+const app = express();
 
 const webpack = require('webpack');
 

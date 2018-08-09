@@ -2,7 +2,7 @@
  * @Author: duantao-ds
  * @Date: 2018-08-08 23:25:58
  * @Last Modified by: duantao-ds
- * @Last Modified time: 2018-08-09 11:40:53
+ * @Last Modified time: 2018-08-09 14:46:57
  */
 
 const merge = require('webpack-merge');
@@ -25,11 +25,13 @@ module.exports = merge(common, {
     },
 
     output: {
-        filename: '[name].[hash].js',
+        filename: '[name].js',
         path: path.resolve(__dirname, '../dist'),
         publicPath: '/'
     },
+
     devtool: 'inline-source-map',
+
     plugins: [
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('development')
@@ -37,5 +39,18 @@ module.exports = merge(common, {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.NoEmitOnErrorsPlugin()
-    ]
+    ],
+
+    module: {
+        rules: [
+            {
+                test: /\.less$/,
+                use: [
+                    {loader: 'style-loader'},
+                    {loader: 'css-loader'},
+                    {loader: 'less-loader'}
+                ]
+            },
+        ]
+    }
 })
