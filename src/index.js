@@ -2,7 +2,7 @@
  * @Author: duantao-ds
  * @Date: 2018-08-08 23:44:35
  * @Last Modified by: duantao-ds
- * @Last Modified time: 2018-08-09 14:29:19
+ * @Last Modified time: 2018-08-09 15:19:07
  */
 
 import Vue from 'vue';
@@ -28,11 +28,3 @@ function init() {
 }
 
 init()
-
-
-if (module.hot) {
-    console.log(111);
-    module.hot.accept('./component/test.vue', function () {
-        console.log('css 更新');
-    });
-}

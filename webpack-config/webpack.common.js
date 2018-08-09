@@ -2,7 +2,7 @@
  * @Author: duantao-ds
  * @Date: 2018-08-08 16:29:51
  * @Last Modified by: duantao-ds
- * @Last Modified time: 2018-08-09 14:54:59
+ * @Last Modified time: 2018-08-09 15:08:39
  */
 
 const webpack = require('webpack');
@@ -72,9 +72,5 @@ module.exports = {
             title: config.pageTitle
         }),
         new VueLoaderPlugin(),
-        new MiniCssExtractPlugin({
-            filename: "[name].[contenthash].css",
-            chunkFilename: "[id].css"
-        })
     ],
 }
