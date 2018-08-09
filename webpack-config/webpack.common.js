@@ -2,7 +2,7 @@
  * @Author: duantao-ds
  * @Date: 2018-08-08 16:29:51
  * @Last Modified by: duantao-ds
- * @Last Modified time: 2018-08-09 10:17:27
+ * @Last Modified time: 2018-08-09 11:05:11
  */
 
 const webpack = require('webpack');
@@ -24,26 +24,22 @@ module.exports = {
         ]
     },
 
-    optimization: {
-        runtimeChunk: 'single',
-        splitChunks: {
-            chunks: 'all',
-            cacheGroups: {
-                vendor: {
-                    test: /node_modules/,
-                    name: 'vendors',
-                    chunks: 'all'
-                }
-            }
-        }
-    },
+    // optimization: {
+    //     runtimeChunk: 'single',
+    //     splitChunks: {
+    //         chunks: 'all',
+    //         cacheGroups: {
+    //             vendor: {
+    //                 test: /node_modules/,
+    //                 name: 'vendors',
+    //                 chunks: 'all'
+    //             }
+    //         }
+    //     }
+    // },
 
     module: {
         rules: [
-            {
-                test: /\.vue$/,
-                loader: 'vue-loader',
-            },
             {
                 test: /\.less$/,
                 use: [
@@ -53,7 +49,6 @@ module.exports = {
                           publicPath: '/'
                         }
                     },
-                    {loader: 'style-loader'},
                     {loader: 'css-loader'},
                     {loader: 'less-loader'}
                 ]
@@ -96,7 +91,6 @@ module.exports = {
             template: './src/index.html',
             title: config.pageTitle
         }),
-        new VueLoaderPlugin(),
         new MiniCssExtractPlugin({
             filename: "[name].css",
             chunkFilename: "[id].css"
