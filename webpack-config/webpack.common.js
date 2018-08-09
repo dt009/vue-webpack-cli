@@ -2,7 +2,7 @@
  * @Author: duantao-ds
  * @Date: 2018-08-08 16:29:51
  * @Last Modified by: duantao-ds
- * @Last Modified time: 2018-08-09 15:32:51
+ * @Last Modified time: 2018-08-09 16:25:26
  */
 
 const webpack = require('webpack');
@@ -26,6 +26,14 @@ module.exports = {
                 }
             }
         }
+    },
+
+    resolve: {
+        alias:  {
+            comp: path.resolve(__dirname, '../src/component/'),
+        },
+
+        extensions: ['.js', '.vue', '.css', '.less', '.png', '.jpg', '.jpeg', '.gif', '.json']
     },
 
     module: {
