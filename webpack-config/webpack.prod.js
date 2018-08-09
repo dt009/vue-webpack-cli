@@ -2,7 +2,7 @@
  * @Author: duantao-ds
  * @Date: 2018-08-09 14:57:24
  * @Last Modified by: duantao-ds
- * @Last Modified time: 2018-08-09 15:17:35
+ * @Last Modified time: 2018-08-09 15:29:03
  */
 
 const merge = require('webpack-merge');
@@ -12,12 +12,13 @@ const webpack = require('webpack');
 const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 
 module.exports = merge(common, {
     mode: 'production',
     entry: {
-        app: ['./src/index.js'],
+        app: './src/index.js',
         vendor: [
             'vue',
             'vue-router',
@@ -30,8 +31,6 @@ module.exports = merge(common, {
         path: path.resolve(__dirname, '../dist'),
         publicPath: '/'
     },
-
-    devtool: 'source-map',
 
     optimization: {
         minimizer: [
@@ -67,8 +66,11 @@ module.exports = merge(common, {
             'process.env.NODE_ENV': JSON.stringify('production')
         }),
         new MiniCssExtractPlugin({
-            filename: "[name].css",
+            filename: "[name].[contenthash].css",
             chunkFilename: "[id].css"
-        })
+        }),
+        new CleanWebpackPlugin(['dist'], {
+            root: path.resolve(__dirname, '../')
+        }),
     ]
 })
