@@ -6,8 +6,8 @@
   "author": "dt009 <18363625031@163.com>",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --config ./webpack-config/webpack.prod.js",
-    "start": "node ./server/server.js"
+    "build": "webpack --config ./webpack-config/webpack.prod.js --color --progress",
+    "dev": "node ./server/server.js --color --progress"
   },
   "dependencies": {
     "autoprefixer-loader": "^3.2.0",

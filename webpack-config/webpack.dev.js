@@ -2,7 +2,7 @@
  * @Author: duantao-ds
  * @Date: 2018-08-08 23:25:58
  * @Last Modified by: duantao-ds
- * @Last Modified time: 2018-08-09 14:46:57
+ * @Last Modified time: 2018-08-21 15:44:47
  */
 
 const merge = require('webpack-merge');
@@ -51,6 +51,13 @@ module.exports = merge(common, {
                     {loader: 'less-loader'}
                 ]
             },
+            {
+                test: /\.css$/,
+                use: [
+                    {loader: 'style-loader'},
+                    {loader: 'css-loader'},
+                ]
+            }
         ]
     }
 })

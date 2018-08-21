@@ -2,7 +2,7 @@
  * @Author: duantao-ds
  * @Date: 2018-08-09 14:57:24
  * @Last Modified by: duantao-ds
- * @Last Modified time: 2018-08-09 15:29:03
+ * @Last Modified time: 2018-08-21 16:07:28
  */
 
 const merge = require('webpack-merge');
@@ -27,7 +27,7 @@ module.exports = merge(common, {
     },
 
     output: {
-        filename: '[name].[chunkhash].js',
+        filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, '../dist'),
         publicPath: '/'
     },
@@ -51,7 +51,7 @@ module.exports = merge(common, {
                     {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
-                            publicPath: '/'
+                            publicPath: '/css/'
                         }
                     },
                     {loader: 'css-loader'},
@@ -67,7 +67,7 @@ module.exports = merge(common, {
         }),
         new MiniCssExtractPlugin({
             filename: "[name].[contenthash].css",
-            chunkFilename: "[id].css"
+            chunkFilename: "css/[name].[contenthash].css"
         }),
         new CleanWebpackPlugin(['dist'], {
             root: path.resolve(__dirname, '../')

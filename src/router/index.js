@@ -2,16 +2,20 @@
  * @Author: duantao-ds
  * @Date: 2018-08-09 16:17:25
  * @Last Modified by: duantao-ds
- * @Last Modified time: 2018-08-09 17:11:01
+ * @Last Modified time: 2018-08-21 16:01:47
  */
 
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import Home from 'comp/Home';
-import About from 'comp/About';
-import About_Home from 'comp/About_Home';
-import About_Message from 'comp/About_Message';
+const Home = () => import(/* webpackChunkName: 'Home' */ '../component/Home.vue');
+
+const About_Home = () => import(/* webpackChunkName: 'About_Home' */ '../component/About_Home.vue');
+
+const About_Message = () => import(/* webpackChunkName: 'About_Message' */ '../component/About_Message.vue');
+
+const About = () => import(/* webpackChunkName: 'About' */ '../component/About.vue');
+
 
 Vue.use(Router);
 

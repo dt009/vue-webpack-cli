@@ -2,7 +2,7 @@
  * @Author: duantao-ds
  * @Date: 2018-08-08 16:29:51
  * @Last Modified by: duantao-ds
- * @Last Modified time: 2018-08-09 16:25:26
+ * @Last Modified time: 2018-08-21 16:08:40
  */
 
 const webpack = require('webpack');
@@ -11,7 +11,6 @@ const config = require('../config/config');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     optimization: {
@@ -54,7 +53,7 @@ module.exports = {
                         loader: 'url-loader',
                         options: {
                             limit: 5000,
-                            name: 'public/image/[name].[ext]'
+                            name: 'image/[name].[ext]'
                         }
                     }
                 ]
@@ -63,9 +62,10 @@ module.exports = {
                 test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
                 loader: 'url-loader',
                 options: {
-                    limit: 10000
+                    limit: 10000,
+                    name: 'iconfont/[name].[ext]'
                 }
-            }
+            },
 
         ]
     },
