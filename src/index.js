@@ -27,7 +27,6 @@ function vueInit() {
     })
 }
 
-
 function init() {
     try {
         setMetaEl(document, window);

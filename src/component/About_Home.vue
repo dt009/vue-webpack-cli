@@ -2,7 +2,7 @@
  * @Author: duantao-ds
  * @Date: 2018-08-09 16:37:53
  * @Last Modified by: duantao-ds
- * @Last Modified time: 2018-08-09 16:49:26
+ * @Last Modified time: 2018-08-22 19:00:32
  */
 
 <template>
@@ -16,7 +16,7 @@
         name: 'About_Home',
         data() {
             return {
-                message: '这是关于我子路由--主页'
+                message: '这是关于我子路由 --  主页'
             }
         }
     }

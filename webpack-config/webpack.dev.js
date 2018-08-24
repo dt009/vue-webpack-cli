@@ -2,7 +2,7 @@
  * @Author: duantao-ds
  * @Date: 2018-08-08 23:25:58
  * @Last Modified by: duantao-ds
- * @Last Modified time: 2018-08-21 15:44:47
+ * @Last Modified time: 2018-08-22 19:00:16
  */
 
 const merge = require('webpack-merge');
@@ -38,7 +38,7 @@ module.exports = merge(common, {
         }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.optimize.OccurrenceOrderPlugin(),
-        new webpack.NoEmitOnErrorsPlugin()
+        new webpack.NoEmitOnErrorsPlugin(),
     ],
 
     module: {
